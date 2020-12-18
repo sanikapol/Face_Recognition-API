@@ -34,7 +34,7 @@ const specs = swaggerJsdoc(options);
 app.use("/docs", swaggerUi.serve, swaggerUi.setup(specs));
 
 app.get('/', (req, res) => {
-    res.send('Hello! This is face detection API.')
+    res.send('Hello! This is Face API.')
 })
   
 app.listen(port, () => {
@@ -45,7 +45,7 @@ app.listen(port, () => {
 /**
  * @swagger
  * definitions:
- *   Detect faces in an image:
+ *   Face Detect:
  *     properties:
  *       imageURL:
  *         type: string
@@ -54,7 +54,7 @@ app.listen(port, () => {
  * @swagger
  * /detectfaces:
  *    post:
- *      description: Detects a face and returns position of face rectangles. The dection model used in this API has a better accuracy for on small, side and blurry faces.  
+ *      description: Detects a face and returns faceID and position of face rectangles. The dection model used in this API has a better accuracy for on small, side and blurry faces.  
  *      produces:
  *          - application/json
  *      responses:
@@ -68,7 +68,7 @@ app.listen(port, () => {
  *            in: body
  *            required: true
  *            schema:
- *              $ref: '#/definitions/Detect faces in an image'
+ *              $ref: '#/definitions/Face Detect'
  *
  */
 app.post('/detectfaces', async (req, res) => {
@@ -124,7 +124,7 @@ function storeImage(req){
 /**
  * @swagger
  * definitions:
- *   Detect faces in an image and returns addition data:
+ *   Face Detect with attributes
  *     properties:
  *       imageURL:
  *         type: string
@@ -175,7 +175,7 @@ function storeImage(req){
  *            in: body
  *            required: true
  *            schema:
- *              $ref: '#/definitions/Detect faces in an image and returns addition data'
+ *              $ref: '#/definitions/Face Detect with attributes'
  *
  */
 app.post('/getfaceattributes', async (req, res) => {
@@ -236,12 +236,12 @@ app.post('/getfaceattributes', async (req, res) => {
  * @swagger
  * /findsimilars:
  *    post:
- *      description: Find similar has two working modes, "matchPerson" and "matchFace". "matchPerson" is the default mode that it tries to find faces of the same person as possible by using internal same-person thresholds. It is useful to find a known person's other photos. Note that an empty list will be returned if no faces pass the internal thresholds. "matchFace" mode ignores same-person thresholds and returns ranked similar faces anyway, even the similarity is low. It can be used in the cases like searching celebrity-looking faces.
+ *      description: Find similar has two working modes, "matchPerson" and "matchFace". "matchPerson" tries to find faces of the same person as possible by using internal same-person thresholds. It is useful to find a known person's other photos. Note that an empty list will be returned if no faces pass the internal thresholds. "matchFace" mode ignores same-person thresholds and returns ranked similar faces anyway, even the similarity is low. It can be used in the cases like searching celebrity-looking faces.
  *      produces:
  *          - application/json
  *      responses:
  *          200:
- *              description: Successful recognition of similarities on faces provided. 
+ *              description: Successful recognition of similarity in faces. 
  *          400:
  *              description: An error occus if the body is invalid. An expired IDs will result in invalid boday. 
  *      parameters:
