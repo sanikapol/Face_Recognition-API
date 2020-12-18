@@ -21,7 +21,7 @@ const options = {
         info: {
             title: 'Face Detection and Recognition API',
             version: '1.0.0',
-            description: 'Face detection is the action of locating human faces in an image and optionally returning different kinds of face-related data. This API returns a faceId and faceRectanlge field. The faceRectangle fields consists of set of pixel coordinates for the left, top, width, and height mark the located face. The faces are listed in size order from largest to smallest. The faceId is used in Face recognition API. \r\n Face recognition describes the work of comparing two different faces to determine if they re similar or belong to the same person. \r\n This API is currently available in: EAST US.'
+            description: 'Face detection is the action of locating human faces in an image and optionally returning different kinds of face-related data. This API returns a faceId and faceRectanlge. The faceRectangle fields consists of set of pixel coordinates for the left, top, width, and height which mark the located face. The faces are listed in size order from largest to smallest. The faceId is used in Face recognition API. Face recognition describes the work of comparing two different faces to determine if they re similar or belong to the same person. \r\n This API is currently available in: EAST US.'
         
         },
         host: "134.122.17.137:3000",
@@ -241,7 +241,7 @@ app.post('/getfaceattributes', async (req, res) => {
  *          - application/json
  *      responses:
  *          200:
- *              description: successful 
+ *              description: Successful recognition of similarities on faces provided. 
  *          400:
  *              description: An error occus if the body is invalid. An expired IDs will result in invalid boday. 
  *      parameters:
