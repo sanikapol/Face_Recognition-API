@@ -124,7 +124,7 @@ function storeImage(req){
 /**
  * @swagger
  * definitions:
- *   Face Detect with attributes
+ *   Face Detect with attributes:
  *     properties:
  *       imageURL:
  *         type: string
