@@ -246,7 +246,7 @@ app.post('/getfaceattributes', async (req, res) => {
  *              description: An error occus if the body is invalid. An expired IDs will result in invalid boday. 
  *      parameters:
  *          - name: Face Ids and few other details. 
- *            description: This API requires following attributes. <br> -FaceId = The face id to be matched. This face ID comes from the detect API and expires after 24 hours of creation. <br> -FaceIds = This is an array of faceIds from which the face is to be mathced. These Ids also come from the detect API and expire in 24 hours after creation. <br> -maxNumOfCandidatesReturned = This is the number of top similar faces returned. The valid range is [1, 1000]. <br> -mode = Similar face searching mode. It can be "matchPerson" or "matchFace". It defaults to "matchPerson".
+ *            description: This API requires following attributes. <br> -FaceId = The face id to be matched. This face ID comes from the detect API and expires after 24 hours of creation. <br> -FaceIds = This is an array of faceIds from which the face is to be mathced. These Ids also come from the detect API and expire in 24 hours after creation. <br> -maxNumOfCandidatesReturned = This is the number of top similar faces returned. The valid range is [1, 1000]. <br> -mode = Similar face searching mode. It can be "matchPerson" or "matchFace".
  *            in: body
  *            required: true
  *            schema:
